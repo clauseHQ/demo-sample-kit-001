@@ -1,0 +1,25 @@
+{
+  "$class": "io.clause.flows.Flow",
+  "name": "Delivery Received",
+  "trigger": "io.clause.flows.trigger.HttpTrigger",
+  "sampleInput": {
+    "deliveredAt": "2020-01-07T15:16:00.000Z",
+    "inspectionPassed": true
+  }, 
+  "steps": [
+    {
+      "$class": "io.clause.flows.util.JsonataTransform",
+      "input": {
+        "$class": "org.accordproject.acceptanceofdelivery.InspectDeliverable",
+        "deliverableReceivedAt": "{{step[0].output.deliveredAt}}",
+        "inspectionPassed": "{{step[0].output.inspectionPassed}}"
+      }
+    },
+    {
+      "$class": "io.clause.flows.util.templateTrigger",
+      "input": {
+        "clauseId": "{{% mldpp1.id %}}"
+      }
+    }
+  ]
+}

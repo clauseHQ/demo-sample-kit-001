@@ -1,0 +1,26 @@
+{
+  "$class": "io.clause.flows.Flow",
+  "name": "Create invoice on Charge",
+  "trigger": "io.clause.flows.trigger.EmittedObligation",
+  "sampleInput": {
+    "$class": "org.accordproject.cicero.runtime.PaymentObligation",
+    "amount": {
+        "$class": "org.accordproject.money.MonetaryAmount",
+        "doubleValue": 245.923,
+        "currencyCode": "GBP"
+    },
+    "description": "Irure qui ad Lorem voluptate.",
+    "contract": "resource:org.accordproject.minilatedeliveryandpenalty.MiniLateDeliveryContract#4378",
+    "promisor": "resource:org.accordproject.cicero.contract.AccordParty#4416",
+    "promisee": "resource:org.accordproject.cicero.contract.AccordParty#7654"
+  },
+  "steps": [
+    {
+      "$class": "io.clause.flows.accounting.stripe.StripeCreateInvoice",
+      "input": {
+        "amount": "{{step[0].amount.doubleValue}}",
+        "currency": "{{step[0].amount.currencyCode}}"
+      }
+    }
+  ]
+}

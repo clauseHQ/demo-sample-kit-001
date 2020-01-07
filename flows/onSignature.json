@@ -1,0 +1,17 @@
+{
+  "$class": "io.clause.flows.Flow",
+  "name": "Send Email when Signed",
+  "trigger": "io.clause.flows.trigger.ContractRunning",
+  "sampleInput": {},
+  "steps": [
+    {
+      "$class": "io.clause.flows.notification.email.SimpleEmail",
+      "input": {
+        "to": "foo@bar.com",
+        "subject": "Contract Signed",
+        "message": "Your contract has been signed",
+        "contractId": "{{% contract.data.contractId %}}"
+      }
+    }
+  ]
+}
