@@ -2,23 +2,40 @@
   "$class": "io.clause.flows.Flow",
   "name": "Delivery Received",
   "trigger": "io.clause.flows.trigger.HttpTrigger",
-  "sampleInput": {
-    "deliveredAt": "2020-01-07T15:16:00.000Z",
-    "inspectionPassed": true
-  }, 
+  "models": {
+    "request": "org.accordproject.cicero.runtime.Request",
+    "response": "org.accordproject.minilatedeliveryandpenalty.LateResponse"
+  },
+  "samples": {
+    "request": {
+        "$class": "org.accordproject.cicero.runtime.Request",
+        "transactionId": "fa5b1840-ff3e-11e9-b361-efc0ae54bdd6",
+        "timestamp": "2019-11-04T15:09:16.484-05:00"
+    },
+    "response": {
+      "$class": "org.accordproject.minilatedeliveryandpenalty.LateResponse",
+      "penalty": 138.335,
+      "buyerMayTerminate": true,
+      "transactionId": "fa5b3f50-ff3e-11e9-b361-efc0ae54bdd6",
+      "timestamp": "2019-11-04T15:09:16.485-05:00"
+    }
+  },
   "steps": [
     {
       "$class": "io.clause.flows.util.JsonataTransform",
+      "name": "Transform",
       "input": {
-        "$class": "org.accordproject.acceptanceofdelivery.InspectDeliverable",
-        "deliverableReceivedAt": "{{step[0].output.deliveredAt}}",
-        "inspectionPassed": "{{step[0].output.inspectionPassed}}"
+        "$class": "org.accordproject.minilatedeliveryandpenalty.LateRequest",
+        "agreedDelivery": "2019-11-04T15:09:16.484-05:00",
+        "deliveredAt": "{{% step[0].output.timestamp %}}",
+        "goodsValue": 77.23
       }
     },
     {
-      "$class": "io.clause.flows.util.templateTrigger",
+      "$class": "io.clause.flows.util.TemplateTrigger",
+      "name": "Send data to the Late Delivery Clause",
       "input": {
-        "clauseId": "{{% mldpp1.id %}}"
+        "clauseId": "clause1"
       }
     }
   ]
