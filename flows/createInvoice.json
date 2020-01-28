@@ -1,5 +1,4 @@
 {
-  "$class": "io.clause.flows.Flow",
   "name": "Create invoice on Charge",
   "trigger": "io.clause.flows.trigger.EmittedObligation",
   "samples": {
@@ -21,7 +20,7 @@
   },
   "steps": [
     {
-      "$class": "io.clause.flows.accounting.stripe.StripeCreateInvoice",
+      "type": "io.clause.flows.accounting.stripe.StripeCreateInvoice",
       "input": {
         "amount": "{{% step[0].amount.doubleValue %}}",
         "currency": "{{% step[0].amount.currencyCode %}}"

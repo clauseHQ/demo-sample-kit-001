@@ -1,5 +1,4 @@
 {
-  "$class": "io.clause.flows.Flow",
   "name": "Delivery Received",
   "trigger": "io.clause.flows.trigger.HttpTrigger",
   "models": {
@@ -22,7 +21,7 @@
   },
   "steps": [
     {
-      "$class": "io.clause.flows.util.JsonataTransform",
+      "type": "io.clause.flows.util.JsonataTransform",
       "name": "Transform",
       "input": {
         "$class": "org.accordproject.minilatedeliveryandpenalty.LateRequest",
@@ -32,7 +31,7 @@
       }
     },
     {
-      "$class": "io.clause.flows.util.TemplateTrigger",
+      "type": "io.clause.flows.util.TemplateTrigger",
       "name": "Send data to the Late Delivery Clause",
       "input": {
         "clauseId": "clause1"

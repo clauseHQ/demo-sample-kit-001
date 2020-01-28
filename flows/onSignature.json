@@ -1,10 +1,9 @@
 {
-  "$class": "io.clause.flows.Flow",
   "name": "Send Email when Signed",
   "trigger": "io.clause.flows.trigger.ContractRunning",
   "steps": [
     {
-      "$class": "io.clause.flows.notification.email.SimpleEmail",
+      "type": "io.clause.flows.notification.email.SimpleEmail",
       "input": {
         "to": "foo@bar.com",
         "subject": "Contract Signed",
