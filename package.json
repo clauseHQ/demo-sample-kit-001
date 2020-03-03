@@ -1,10 +1,11 @@
-{ 
-	"name": "my-first-kit",
-	"version": "0.0.0",
-	"description": "clause-server",
-	"license": "LicenseRef-LICENSE",
-	"author": "Clause Inc.",
-	"engine": {
-		"clause-kit": "0.0.1"
-	}
+{
+  "name": "my-first-kit",
+  "displayName": "My first kit",
+  "version": "0.0.0",
+  "description": "clause-server",
+  "license": "LicenseRef-LICENSE",
+  "author": "Clause Inc.",
+  "engine": {
+    "clause-kit": "0.0.1"
+  }
 }
