@@ -34,7 +34,7 @@
       "type": "io.clause.flows.util.TemplateTrigger",
       "name": "Send data to the Late Delivery Clause",
       "input": {
-        "clauseId": "clause1"
+        "clauseId": "{{% clauseId %}}"
       }
     }
   ]
