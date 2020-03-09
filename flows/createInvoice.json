@@ -1,6 +1,7 @@
 {
   "name": "Create invoice on Charge",
   "trigger": "io.clause.flows.trigger.EmittedObligation",
+  "contractId": "{{% contractId %}}",
   "clauseId": "{{% clauseId %}}",
   "samples": {
     "request": {

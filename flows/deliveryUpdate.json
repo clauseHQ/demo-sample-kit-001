@@ -1,6 +1,7 @@
 {
   "name": "Delivery Received",
   "trigger": "io.clause.flows.trigger.HttpTrigger",
+  "contractId": "{{% contractId %}}",
   "clauseId": "{{% clauseId %}}",
   "models": {
     "request": "org.accordproject.cicero.runtime.Request",
