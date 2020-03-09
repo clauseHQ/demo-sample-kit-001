@@ -1,6 +1,7 @@
 {
   "name": "Create invoice on Charge",
   "trigger": "io.clause.flows.trigger.EmittedObligation",
+  "clauseId": "{{% clauseId %}}",
   "samples": {
     "request": {
       "$class": "org.accordproject.cicero.runtime.PaymentObligation",

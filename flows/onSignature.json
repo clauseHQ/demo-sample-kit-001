@@ -1,6 +1,7 @@
 {
   "name": "Send Email when Signed",
   "trigger": "io.clause.flows.trigger.ContractRunning",
+  "clauseId": "{{% clauseId %}}",
   "steps": [
     {
       "type": "io.clause.flows.notification.email.SimpleEmail",

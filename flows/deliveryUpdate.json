@@ -1,6 +1,7 @@
 {
   "name": "Delivery Received",
   "trigger": "io.clause.flows.trigger.HttpTrigger",
+  "clauseId": "{{% clauseId %}}",
   "models": {
     "request": "org.accordproject.cicero.runtime.Request",
     "response": "org.accordproject.minilatedeliveryandpenalty.LateResponse"
