@@ -1,6 +1,6 @@
 {
   "name": "Delivery Received",
-  "trigger": "io.clause.flows.trigger.HttpTrigger",
+  "triggerType": "io.clause.flows.trigger.HttpTrigger",
   "contractId": "{{% contractId %}}",
   "clauseId": "{{% clauseId %}}",
   "models": {
