@@ -1,0 +1,12 @@
+{
+    "clauseId": "{{% clauseId %}}",
+    "name": "Default Flow",
+    "triggerType": "io.clause.flows.trigger.HttpTrigger",
+    "steps": [{
+        "transformation": "clauseTrigger",
+        "input": {
+            "clauseId": "{{% clauseId %}}"
+        },
+        "id": "cef8032c-2b52-45d2-9b98-63a71da21653"
+    }]
+}
