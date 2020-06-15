@@ -1,7 +1,7 @@
 {
-  "name": "my-first-kit",
-  "displayName": "My first kit",
-  "version": "0.0.0",
+  "name": "hello-kits",
+  "displayName": "Hello World Kit",
+  "version": "0.1.3",
   "description": "clause-server",
   "license": "LicenseRef-LICENSE",
   "author": "Clause Inc.",
