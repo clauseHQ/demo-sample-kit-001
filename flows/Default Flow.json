@@ -2,6 +2,9 @@
     "clauseId": "{{% clauseId %}}",
     "name": "Default Flow",
     "triggerType": "io.clause.flows.trigger.HttpTrigger",
+    "models": {
+        "request": "org.accordproject.helloworldstate.MyRequest"
+    },
     "steps": [{
         "transformation": "clauseTrigger",
         "input": {
