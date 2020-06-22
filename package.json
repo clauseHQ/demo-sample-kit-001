@@ -1,9 +1,9 @@
 {
   "name": "my-first-kit",
   "displayName": "My first kit",
-  "version": "0.0.0",
-  "description": "clause-server",
-  "license": "LicenseRef-LICENSE",
+  "version": "0.0.1",
+  "description": "A sample kit to demonstrate the kit archive structure",
+  "license": "Apache-2.0",
   "author": "Clause Inc.",
   "engine": {
     "clause-kit": "0.0.1"

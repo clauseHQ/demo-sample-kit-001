@@ -1,7 +1,6 @@
 {
   "name": "Create invoice on Charge",
   "triggerType": "io.clause.flows.trigger.EmittedObligation",
-  "contractId": "{{% contractId %}}",
   "clauseId": "{{% clauseId %}}",
   "samples": {
     "request": {
@@ -22,10 +21,26 @@
   },
   "steps": [
     {
-      "type": "io.clause.flows.accounting.stripe.StripeCreateInvoice",
+      "transformation": "stripeCreateInvoice",
       "input": {
-        "amount": "{{% step[0].amount.doubleValue %}}",
-        "currency": "{{% step[0].amount.currencyCode %}}"
+        "due_date": 1592912644,
+        "lineItems": [
+            {
+                "amount": "{{% step[0].amount.doubleValue %}}",
+                "currency": "usd",
+                "description": "Widgets"
+            }
+        ],
+        "accessToken": "{{% vault['Stripe'].accessToken %}}",
+        "StripeApp": "Stripe",
+        "customer": "cus_1111111111",
+        "custom_fields": [
+            {
+                "name": "contract.id",
+                "value": "{{% contract.id %}}"
+            }
+        ],
+        "collection_method": "send_invoice"
       }
     }
   ]

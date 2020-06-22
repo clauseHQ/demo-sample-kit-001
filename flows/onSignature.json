@@ -1,16 +1,18 @@
 {
   "name": "Send Email when Signed",
-  "triggerType": "io.clause.flows.trigger.ContractRunning",
-  "contractId": "{{% contractId %}}",
+  "triggerType": "io.clause.common.audit.ContractSignedByAll",
   "clauseId": "{{% clauseId %}}",
+  "models": {
+    "request": "org.accordproject.cicero.runtime.Request"
+  },
   "steps": [
     {
-      "type": "io.clause.flows.notification.email.SimpleEmail",
+      "transformation": "sendgridEmail",
       "input": {
-        "to": "foo@bar.com",
-        "subject": "Contract Signed",
-        "message": "Your contract has been signed",
-        "contractId": "{{% contract.data.contractId %}}"
+        "to": "hello@clause.io",
+        "subject": "We love Clause!",
+        "message": "",
+        "contractId": "{{% contract.id %}}"
       }
     }
   ]

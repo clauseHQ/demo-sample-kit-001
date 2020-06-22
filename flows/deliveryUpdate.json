@@ -23,17 +23,14 @@
   },
   "steps": [
     {
-      "type": "io.clause.flows.util.JsonataTransform",
+      "transformation": "jsonata",
       "name": "Transform",
       "input": {
-        "$class": "org.accordproject.minilatedeliveryandpenalty.LateRequest",
-        "agreedDelivery": "2019-11-04T15:09:16.484-05:00",
-        "deliveredAt": "{{% step[0].output.timestamp %}}",
-        "goodsValue": 77.23
+        "$expression": "{\n        \"$class\": \"org.accordproject.minilatedeliveryandpenalty.LateRequest\",\n        \"agreedDelivery\": \"2019-11-04T15:09:16.484-05:00\",\n        \"deliveredAt\": step[0].output.timestamp,\n        \"goodsValue\": 77.23\n      }"
       }
     },
     {
-      "type": "io.clause.flows.util.TemplateTrigger",
+      "transformation": "clauseTrigger",
       "name": "Send data to the Late Delivery Clause",
       "input": {
         "clauseId": "{{% clauseId %}}"
